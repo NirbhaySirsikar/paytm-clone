@@ -11,7 +11,7 @@ export default async function() {
     <div className="text-4xl text-[#6a51a6] pt-8 mb-8 font-bold">
       P2P Transfer
     </div>
-    <div className="grid grid-cols-1 p-4 md:grid-cols-2 p-4">
+    <div className="grid grid-cols-1 p-4 gap-4 md:grid-cols-2 p-4">
       <div>
         <TransferMoney />
       </div>

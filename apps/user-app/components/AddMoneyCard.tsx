@@ -1,7 +1,6 @@
 "use client"
 import { Button } from "@repo/ui/button";
 import { Card } from "@repo/ui/card";
-import { Center } from "@repo/ui/center";
 import { Select } from "@repo/ui/select";
 import { useState } from "react";
 import { TextInput } from "@repo/ui/textinput";
@@ -36,8 +35,11 @@ export const AddMoney = () => {
       }))} />
       <div className="flex justify-center pt-4">
         <Button onClick={async () => {
-          await createOnRampTransaction(Number(amount) * 100, provider);
-          window.location.href = redirectUrl || "";
+          if (amount == "" || Number(amount) <= 0) return;
+          const response = await createOnRampTransaction(Number(amount) * 100, provider);
+          alert(`Please share this info with your bank:\n ${JSON.stringify(response)}`)
+          navigator.clipboard.writeText(JSON.stringify(response));
+          // window.location.href = redirectUrl || "";
         }}>
           Add Money
         </Button>

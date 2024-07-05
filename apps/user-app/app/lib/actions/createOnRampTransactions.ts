@@ -22,8 +22,7 @@ export async function createOnRampTransaction(amount: number, provider: string) 
       token
     }
   })
-  return {
-    message: "On Ramp Transaction has been added"
-  }
+  console.log({ token, user_identifier: userId, amount });
+  return { token, user_identifier: userId, amount };
 }
 
